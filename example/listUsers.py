@@ -23,9 +23,11 @@ def main():
     client = strongdm.Client(os.getenv("SDM_API_ACCESS_KEY"),
                              os.getenv("SDM_API_SECRET_KEY"))
 
+    #
     users = client.accounts.list('')
     for user in users:
-        print(user)
+        if isinstance(user, strongdm.User):
+            print(user)
 
 
 if __name__ == "__main__":
